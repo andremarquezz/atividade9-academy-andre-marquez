@@ -12,48 +12,60 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
-      - uses: actions/cache@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: "adopt"
+          java-version: "11"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1-mesa-glx
+          sudo apt-get install -y android-tools-adb android-tools-fastboot
+          sudo apt-get install -y wget tar unzip
+
+      - name: Download and set up Android SDK
+        run: |
+          wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O cmdline-tools.zip
+          unzip cmdline-tools.zip -d $HOME
+          mkdir -p $HOME/android-sdk/cmdline-tools
+          mv $HOME/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
+          echo 'export ANDROID_SDK_ROOT=$HOME/android-sdk' >> $GITHUB_ENV
+          echo 'export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin' >> $GITHUB_ENV
+          echo 'export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools' >> $GITHUB_ENV
+          source $GITHUB_ENV
+          yes | sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
+          sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platform-tools" "platforms;android-30" "build-tools;30.0.3" "system-images;android-30;google_apis;x86_64" "emulator"
+          echo 'no' | avdmanager create avd -n test -k "system-images;android-30;google_apis;x86_64" --force
+
+      - name: Start Android Emulator
+        run: |
+          $ANDROID_SDK_ROOT/emulator/emulator -avd test -no-window -no-audio -no-boot-anim -camera-back none -camera-front none -gpu swiftshader_indirect -no-snapshot &
+          adb wait-for-device
+          adb shell settings put global window_animation_scale 0.0
+          adb shell settings put global transition_animation_scale 0.0
+          adb shell settings put global animator_duration_scale 0.0
+          sleep 60
+
+      - name: Install Appium
+        run: |
+          npm install -g appium
+          appium -p 4723 &
+          sleep 10
+
+      - uses: actions/cache@v3
         id: cache
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirement.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
 
       - name: Install pip dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirement.txt
-
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: "11"
-
-      - name: Download and setup Android SDK
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unzip
-          wget https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O cmdline-tools.zip
-          unzip cmdline-tools.zip -d $HOME/sdk
-          mkdir -p $HOME/sdk/cmdline-tools/latest
-          mv $HOME/sdk/cmdline-tools/* $HOME/sdk/cmdline-tools/latest/
-          export ANDROID_SDK_ROOT=$HOME/sdk
-          export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH
-
-      - name: Accept Android SDK licenses
-        run: yes | sdkmanager --licenses
-
-      - name: Install Android SDK packages
-        run: |
-          sdkmanager "platform-tools" "emulator" "platforms;android-30" "build-tools;30.0.3" "system-images;android-30;google_apis;x86_64"
-
-      - name: Create and start Android emulator
-        run: |
-          echo "no" | avdmanager create avd -n test -k "system-images;android-30;google_apis;x86_64" --device "pixel"
-          $ANDROID_SDK_ROOT/emulator/emulator -avd test -no-skin -no-audio -no-window &
-          adb wait-for-device
-          adb shell input keyevent 82
+          pip install -r requirements.txt
 
       - name: Run Test
         run: python -m robot --outputdir results android/features
