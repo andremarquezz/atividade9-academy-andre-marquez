@@ -12,6 +12,11 @@ CT001 - Deve ser possível navegar para a área de transferência através do me
   Quando o usuário clica no atalho "Transferir" do menu carrossel
   Então o usuário deve ser direcionado para a tela de transferência
 
+CT004 - Deve ser possível navegar para a área de Pix através do menu carrossel da homepage
+  Dado que o usuário está na tela inicial do Nubank Clone
+  Quando o usuário clica no atalho "Pix" do menu carrossel
+  Então o usuário deve ser direcionado para a tela de Pix
+
 CT002 - Deve ser possível navegar para a área de pagamento através do menu carrossel da homepage
   Dado que o usuário está na tela inicial do Nubank Clone
   Quando o usuário clica no atalho "Pagar" do menu carrossel
@@ -22,10 +27,7 @@ CT003 - Deve ser possível navegar para a área de depósito através do menu ca
   Quando o usuário clica no atalho "Depositar" do menu carrossel
   Então o usuário deve ser direcionado para a tela de depósito
 
-CT004 - Deve ser possível navegar para a área de Pix através do menu carrossel da homepage
-  Dado que o usuário está na tela inicial do Nubank Clone
-  Quando o usuário clica no atalho "Pix" do menu carrossel
-  Então o usuário deve ser direcionado para a tela de Pix
+
 
 CT005 - Deve ser possível navegar para a área de empréstimo através do menu carrossel da homepage
   Dado que o usuário está na tela inicial do Nubank Clone
