@@ -3,7 +3,7 @@ name: Robot Framework CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
   workflow_dispatch:
 
@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
-      - uses: actions/cache@v2
+        uses: actions/checkout@v3 # Atualizado para a versão mais recente
+      - uses: actions/cache@v3 # Atualizado para a versão mais recente
         id: cache
         with:
           path: ~/.cache/pip
@@ -28,7 +28,7 @@ jobs:
         run: python -m robot -d reports -x junit-report.xml android/features
       - name: Run Robot Framework tests and generate report
         run: |
-          echo "ROBOT_RC=$?" >> "$GITHUB_ENV"  
+          echo "ROBOT_RC=$?" >> "$GITHUB_ENV"
       # - name: If Auto Test Pass Rate Not 100%, Job Will Fail
       #   if: env.ROBOT_RC != '0'
       #   run: |
