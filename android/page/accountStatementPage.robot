@@ -24,24 +24,17 @@ Quando o usuário acessa a aba de histórico de transações
 
 
 Então o tipo da transação deve ser exibido
-    ${desc}=    Get Element Attribute    ${TRANSFER_USER_ONE}    content-desc
-    Should Contain    ${desc}    Transferência enviada
-
+    Verifica se o elemento contém o texto    ${TRANSFER_USER_ONE}    Transferência enviada
 Então o valor da transação deve ser exibido
-    ${desc}=    Get Element Attribute    ${TRANSFER_USER_ONE}    content-desc
-    Should Contain    ${desc}    R$ 30,00
+    Verifica se o elemento contém o texto    ${TRANSFER_USER_ONE}    R$ 30,00
 
 Então o método da transação deve ser exibido
-    ${desc}=    Get Element Attribute    ${TRANSFER_USER_ONE}    content-desc
-    Should Contain    ${desc}    Pix
-
+    Verifica se o elemento contém o texto    ${TRANSFER_USER_ONE}    Pix
 Então a data da transação deve ser exibida
-    ${desc}=    Get Element Attribute    ${TRANSFER_USER_ONE}    content-desc
-    Should Contain    ${desc}    Ontem
+    Verifica se o elemento contém o texto    ${TRANSFER_USER_ONE}    Ontem
 
 Então o usuário envolvido na transação deve ser exibido
-    ${desc}=    Get Element Attribute    ${TRANSFER_USER_ONE}    content-desc
-    Should Contain    ${desc}    PATRICIA COSTA
+   Verifica se o elemento contém o texto    ${TRANSFER_USER_ONE}    PATRICIA COSTA
 Então o histórico de transações da conta do usuário deve ser exibido
     Wait Until Element Is Visible       ${TRANSFER_USER_FOUR}
     Element Should Be Visible           ${TRANSFER_USER_FOUR}
