@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-28T11:56:05.896555" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-28T13:27:59.530348" rpa="false" schemaversion="5">
 <suite id="s1" name="accountStatementTest" source="c:\Users\andre\OneDrive\Documentos\dev\Raro\atv9\atividade9-academy-andre-marquez\android\features\accountStatementTest.robot">
-<test id="s1-t1" name="CT003 - Deve ser possível visualizar o rendimento total da conta" line="18">
+<test id="s1-t1" name="CT005 - Deve ser possível visualizar o tipo de cada transação" line="27">
 <kw name="Abrir App" owner="config" type="SETUP">
 <kw name="Open Application" owner="AppiumLibrary">
 <arg>http://127.0.0.1:4723</arg>
@@ -17,60 +17,84 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 | remote_url          | Yes    | Appium server url |
 | alias               | no     | alias             |
 | strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
-<status status="PASS" start="2024-05-28T11:56:06.169082" elapsed="6.001378"/>
+<status status="PASS" start="2024-05-28T13:27:59.763425" elapsed="6.510288"/>
 </kw>
-<status status="PASS" start="2024-05-28T11:56:06.168076" elapsed="6.002384"/>
+<status status="PASS" start="2024-05-28T13:27:59.763425" elapsed="6.510288"/>
 </kw>
 <kw name="Dado que o usuário está na tela de extrato da conta" owner="accountStatementPage">
 <kw name="Espera o elemento e faz o clique" owner="commons">
 <kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
-<msg time="2024-05-28T11:56:13.944632" level="INFO">xpath criteria: //android.view.View[contains(@content-desc, "Conta")]</msg>
+<msg time="2024-05-28T13:28:08.084107" level="INFO">xpath criteria: //android.view.View[contains(@content-desc, "Conta")]</msg>
 <arg>${locator}</arg>
 <doc>Waits until element specified with `locator` is visible.</doc>
-<status status="PASS" start="2024-05-28T11:56:12.171466" elapsed="1.774167"/>
+<status status="PASS" start="2024-05-28T13:28:06.273713" elapsed="1.811395"/>
 </kw>
 <kw name="Click Element" owner="AppiumLibrary">
-<msg time="2024-05-28T11:56:13.947632" level="INFO">Clicking element 'xpath=//android.view.View[contains(@content-desc, "Conta")]'.</msg>
-<msg time="2024-05-28T11:56:15.010613" level="INFO">xpath criteria: //android.view.View[contains(@content-desc, "Conta")]</msg>
+<msg time="2024-05-28T13:28:08.087109" level="INFO">Clicking element 'xpath=//android.view.View[contains(@content-desc, "Conta")]'.</msg>
+<msg time="2024-05-28T13:28:09.147624" level="INFO">xpath criteria: //android.view.View[contains(@content-desc, "Conta")]</msg>
 <arg>${locator}</arg>
 <doc>Click element identified by `locator`.</doc>
-<status status="PASS" start="2024-05-28T11:56:13.945633" elapsed="1.064980"/>
+<status status="PASS" start="2024-05-28T13:28:08.086108" elapsed="1.061516"/>
 </kw>
 <arg>${OPEN_ACCOUNT_STATEMENT}</arg>
-<status status="PASS" start="2024-05-28T11:56:12.171466" elapsed="2.839147"/>
+<status status="PASS" start="2024-05-28T13:28:06.273713" elapsed="2.873911"/>
 </kw>
-<status status="PASS" start="2024-05-28T11:56:12.170460" elapsed="2.840153"/>
+<status status="PASS" start="2024-05-28T13:28:06.273713" elapsed="2.874914"/>
 </kw>
-<kw name="Então o rendimento total da conta deve ser exibido" owner="accountStatementPage">
-<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
-<msg time="2024-05-28T11:56:15.113378" level="INFO">xpath criteria: //android.view.View[normalize-space(@content-desc)="Rendimento total da conta +R$ 0,20 este mês"]</msg>
-<arg>${TOTAL_EARNINGS}</arg>
-<doc>Waits until element specified with `locator` is visible.</doc>
-<status status="PASS" start="2024-05-28T11:56:15.010613" elapsed="0.102765"/>
+<kw name="Quando o usuário acessa a aba de histórico de transações" owner="accountStatementPage">
+<kw name="Swipe" owner="AppiumLibrary">
+<arg>487</arg>
+<arg>1542</arg>
+<arg>508</arg>
+<arg>797</arg>
+<arg>1000</arg>
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<status status="PASS" start="2024-05-28T13:28:09.149625" elapsed="1.327811"/>
 </kw>
-<kw name="Element Should Be Visible" owner="AppiumLibrary">
-<msg time="2024-05-28T11:56:15.220903" level="INFO">xpath criteria: //android.view.View[normalize-space(@content-desc)="Rendimento total da conta +R$ 0,20 este mês"]</msg>
-<arg>${TOTAL_EARNINGS}</arg>
-<doc>Verifies that element identified with locator is visible.</doc>
-<status status="PASS" start="2024-05-28T11:56:15.114378" elapsed="0.106525"/>
+<status status="PASS" start="2024-05-28T13:28:09.148627" elapsed="1.328809"/>
 </kw>
-<status status="PASS" start="2024-05-28T11:56:15.010613" elapsed="0.210290"/>
+<kw name="Então o tipo da transação deve ser exibido" owner="accountStatementPage">
+<kw name="Get Element Attribute" owner="AppiumLibrary">
+<msg time="2024-05-28T13:28:12.858588" level="INFO">Element 'xpath=//android.view.View[contains(@content-desc, "PATRICIA COSTA")]' attribute 'content-desc' value 'Transferência enviada
+Ontem
+PATRICIA COSTA 
+R$ 30,00
+Pix' </msg>
+<msg time="2024-05-28T13:28:12.858588" level="INFO">xpath criteria: //android.view.View[contains(@content-desc, "PATRICIA COSTA")]</msg>
+<msg time="2024-05-28T13:28:12.858588" level="INFO">${desc} = Transferência enviada
+Ontem
+PATRICIA COSTA 
+R$ 30,00
+Pix</msg>
+<var>${desc}</var>
+<arg>${TRANSFER_USER_ONE}</arg>
+<arg>content-desc</arg>
+<doc>Get element attribute using given attribute: name, value,...</doc>
+<status status="PASS" start="2024-05-28T13:28:10.478437" elapsed="2.380151"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${desc}</arg>
+<arg>Transferência enviada</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-28T13:28:12.858588" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-28T13:28:10.477436" elapsed="2.381152"/>
 </kw>
 <kw name="Teardown" owner="config" type="TEARDOWN">
 <kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <arg>Capture Page Screenshot</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2024-05-28T11:56:15.221903" elapsed="0.001003"/>
+<status status="PASS" start="2024-05-28T13:28:12.860098" elapsed="0.001007"/>
 </kw>
 <kw name="Close All Applications" owner="AppiumLibrary">
 <doc>Closes all open applications.</doc>
-<status status="PASS" start="2024-05-28T11:56:15.222906" elapsed="0.443552"/>
+<status status="PASS" start="2024-05-28T13:28:12.861105" elapsed="0.546370"/>
 </kw>
-<status status="PASS" start="2024-05-28T11:56:15.221903" elapsed="0.444555"/>
+<status status="PASS" start="2024-05-28T13:28:12.860098" elapsed="0.548382"/>
 </kw>
-<status status="PASS" start="2024-05-28T11:56:06.168076" elapsed="9.498382"/>
+<status status="PASS" start="2024-05-28T13:27:59.762426" elapsed="13.646054"/>
 </test>
-<status status="PASS" start="2024-05-28T11:56:05.901069" elapsed="9.767389"/>
+<status status="PASS" start="2024-05-28T13:27:59.534349" elapsed="13.874131"/>
 </suite>
 <statistics>
 <total>
