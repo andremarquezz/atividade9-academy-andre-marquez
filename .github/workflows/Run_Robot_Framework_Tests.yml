@@ -25,7 +25,7 @@ jobs:
           docker run \
             -v ${PWD}/reports:/opt/robotframework/reports:Z \
             -v ${PWD}/android/features:/opt/robotframework/tests:Z \
-            -v ${PWD}/android/utils:/opt/robotframework/utils:Z \ # Adicionado o volume para o diretório de utilitários
+            -v ${PWD}/android/utils:/opt/robotframework/utils:Z \
             --user $(id -u):$(id -g) \
             ppodgorsek/robot-framework:latest
 
