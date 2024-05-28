@@ -4,7 +4,6 @@ Resource    ../../base.robot
 
 *** Variables ***
 ${TRANSFER_TEXT}                  Qual é o valor da transferência?
-${HELLO_USER}                     xpath=//android.view.View[@content-desc="Olá, Breno Freitas"]
 
 #PIX AREA
 ${PIX_IMAGE}                      xpath=//android.widget.ImageView[contains(@content-desc, "Minha área Pix")]
@@ -52,9 +51,6 @@ ${BTN_FIND_FRIENDS}               xpath=//android.widget.ScrollView/android.widg
 
 
 *** Keywords ***
-
-Dado que o usuário está na tela inicial do Nubank Clone
-   Wait Until Element Is Visible    ${HELLO_USER}
 
 Quando o usuário clica no atalho "Pix" do menu carrossel
     Click Element    ${BTN_PIX}
