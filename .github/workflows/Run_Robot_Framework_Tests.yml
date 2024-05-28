@@ -26,6 +26,7 @@ jobs:
             -v ${PWD}/reports:/opt/robotframework/reports:Z \
             -v ${PWD}/android/features:/opt/robotframework/tests:Z \
             -v ${PWD}/android/utils:/opt/robotframework/utils:Z \
+            -v ${PWD}/base.robot:/opt/robotframework/utils/base.robot:Z \
             --user $(id -u):$(id -g) \
             ppodgorsek/robot-framework:latest
 
