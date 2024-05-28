@@ -9,15 +9,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Execute tests
         uses: joonvena/robotframework-docker-action@v0.1
         env:
           BROWSER: chrome
           ROBOT_TESTS_DIR: ${{ github.workspace }}/robot_tests
           ROBOT_REPORTS_DIR: ${{ github.workspace }}/reports
+
       - name: Upload test results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: reports
@@ -29,15 +32,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download reports
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: reports
+
       - name: Get Repository Owner & Name
         run: |
-          export OWNER="$(echo "${{ github.repository }}" | awk -F / '{print $1}' | sed -e "s/:refs//")"
-          export REPO="$(echo "${{ github.repository }}" | awk -F / '{print $2}' | sed -e "s/:refs//")"
-          echo "::set-env name=REPOSITORY_OWNER::$OWNER"
-          echo "::set-env name=REPOSITORY_NAME::$REPO"
+          echo "REPOSITORY_OWNER=${{ github.repository_owner }}" >> $GITHUB_ENV
+          echo "REPOSITORY_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
+
       - name: Send report to commit
         uses: joonvena/robotframework-reporter-action@v0.1
         env:
