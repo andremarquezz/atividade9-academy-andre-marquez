@@ -2,7 +2,7 @@
 name: Run Robot Framework Tests
 on:
   push:
-    # runs tests for commits pushed to master
+    # runs tests for commits pushed to main
     branches:
       - main
     # do not run tests if file README.md changes
@@ -35,8 +35,8 @@ jobs:
         run: |
           docker run \
             -v ${PWD}/reports:/opt/robotframework/reports:Z \
-            -v ${PWD}/tests:/opt/robotframework/tests:Z \
-            -e ROBOT_OPTIONS="--variable DINOSAUR:Achillobator --variable NOT_DINOSAUR:kissa" \
+            -v ${PWD}/android/features:/opt/robotframework/tests:Z \ # Atualização do caminho dos testes
+            -e ROBOT_OPTIONS="--variable DINOSAUR:Achillobator --variable NOT_DINOSAUR:kissa" \ # ROBOT_OPTIONS ajustadas
             --user $(id -u):$(id -g) \
             ppodgorsek/robot-framework:latest
       # upload test reports as a zip file
