@@ -1,6 +1,7 @@
 *** Settings ***
 
-Resource    ../../base.robot
+Resource    ../utils/base.robot
+
 
 *** Variables ***
 ${TRANSFER_TEXT}                  Qual é o valor da transferência?

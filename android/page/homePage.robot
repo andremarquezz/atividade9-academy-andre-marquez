@@ -1,7 +1,6 @@
 *** Settings ***
 
-Resource    ../../base.robot
-Library    XML
+Resource    ../utils/base.robot
 
 *** Variables ***
 ${ICON_HOME}                      xpath=//android.widget.ScrollView/android.view.View[1]
