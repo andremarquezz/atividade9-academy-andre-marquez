@@ -1,6 +1,6 @@
 *** Settings ***
 
-Resource    ../utils/base.robot
+Resource   ../../base.robot
 
 
 *** Keywords ***

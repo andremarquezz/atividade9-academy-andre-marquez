@@ -1,6 +1,6 @@
 *** Settings ***
 
-Resource    ../utils/base.robot
+Resource    ../../base.robot
 
 *** Variables ***
 ${CREDIT_CARD_TEXT}           xpath=//android.view.View[contains(@content-desc, "Cartão de Crédito")]

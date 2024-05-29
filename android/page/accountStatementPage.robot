@@ -1,6 +1,6 @@
 *** Settings ***
 
-Resource    ../utils/base.robot
+Resource    ../../base.robot
 
 *** Variables ***
 ${OPEN_ACCOUNT_STATEMENT}      xpath=//android.view.View[contains(@content-desc, "Conta")]
