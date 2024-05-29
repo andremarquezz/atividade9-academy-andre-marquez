@@ -21,12 +21,13 @@ CT003 - Deve ser exibido o atalho "Meus Cartões"
 
 CT004 - Deve ser exibida a aba de cartão de crédito
   Dado que o usuário está na tela inicial do Nubank Clone
+  Quando o usuário rola a tela para baixo
   Então o atalho para cartão de crédito deve ser exibido
 
 CT005 - Deve ser exibido o valor da fatura atual do cartão de crédito
   Dado que o usuário está na tela inicial do Nubank Clone
   Quando o usuário rola a tela para baixo
-  Então o valor da fatura atual deve ser exibido
+  Então o valor da fatura atual deve ser exibido no atalho do cartão de crédito 
 
 CT006 - Deve ser exibido o valor do crédito disponível
   Dado que o usuário está na tela inicial do Nubank Clone
@@ -36,11 +37,11 @@ CT006 - Deve ser exibido o valor do crédito disponível
 CT007 - Deve ser possível navegar para a aba de empréstimo
   Dado que o usuário está na tela inicial do Nubank Clone
   Quando o usuário rola a tela para baixo
-  Então o atalho de empréstimo deve ser exibido
+  Então o atalho de empréstimo deve ser exibido 
 
 CT008 - Deve ser possível navegar para a aba de investimentos
   Dado que o usuário está na tela inicial do Nubank Clone
-  Quando o usuário rola a tela para baixo
+  Quando o usuário rola a tela para o fim da página
   Então o atalho de investimentos deve ser exibido
 
 CT009 - Deve ser exibido o atalho de seguro de vida
