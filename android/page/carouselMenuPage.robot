@@ -76,7 +76,7 @@ Quando o usuário clica no atalho "Depositar" do menu carrossel
     Click Element                            ${BTN_DEPOSIT}
 
 Quando o usuario arrasta o menu carrossel para a esquerda
-    Swipe    900    900    70    900    1400
+    Swipe    900    900    75    900    1350
 
 E clica no atalho "Empréstimo" do menu carrossel
     Click Element                            ${BTN_LOAN}
