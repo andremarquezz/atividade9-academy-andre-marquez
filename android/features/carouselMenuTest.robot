@@ -26,6 +26,7 @@ CT004 - Deve ser possível navegar para a área de depósito através do menu ca
   Dado que o usuário está na tela inicial do Nubank Clone
   Quando o usuário clica no atalho "Depositar" do menu carrossel
   Então o usuário deve ser direcionado para a tela de depósito
+  
 CT005 - Deve ser possível navegar para a área de empréstimo através do menu carrossel da homepage
   Dado que o usuário está na tela inicial do Nubank Clone
   Quando o usuario arrasta o menu carrossel para a esquerda
