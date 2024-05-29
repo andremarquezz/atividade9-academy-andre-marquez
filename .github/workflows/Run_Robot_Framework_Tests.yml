@@ -20,6 +20,9 @@ jobs:
       - name: Create folder for reports
         run: mkdir reports
 
+      - name: Install pip dependencies
+        run: pip install -r android/utils/requirements.txt
+
       - name: Run Robot Framework Tests
         run: |
           docker run \
