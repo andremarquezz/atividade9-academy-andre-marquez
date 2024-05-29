@@ -30,53 +30,53 @@ Quando o usuario acessa a aba de histórico de transações
 
 
 Então o valor da fatura atual deve ser exibido
-    Wait Until Element Is Visible    ${INVOICE_AMOUNT}
-    Element Should Be Visible        ${INVOICE_AMOUNT}
+    Wait Until Element Is Visible            ${INVOICE_AMOUNT}
+    Element Should Be Visible                ${INVOICE_AMOUNT}
 
 Então o valor do limite disponível deve ser exibido
-    Wait Until Element Is Visible    ${AVAILABLE_LIMIT}
-    Element Should Be Visible        ${AVAILABLE_LIMIT}
+    Wait Until Element Is Visible            ${AVAILABLE_LIMIT}
+    Element Should Be Visible                ${AVAILABLE_LIMIT}
 
 Então o botão "Pagar fatura" deve ser exibido
-    Wait Until Element Is Visible    ${BTN_PAY_INVOICE}
-    Element Should Be Visible        ${BTN_PAY_INVOICE}
+    Wait Until Element Is Visible            ${BTN_PAY_INVOICE}
+    Element Should Be Visible                ${BTN_PAY_INVOICE}
 
 Então o botão "Resumo de faturas" deve ser exibido
-    Wait Until Element Is Visible    ${BTN_INVOICE_SUMMARY}
-    Element Should Be Visible        ${BTN_INVOICE_SUMMARY}
+    Wait Until Element Is Visible            ${BTN_INVOICE_SUMMARY}
+    Element Should Be Visible                ${BTN_INVOICE_SUMMARY}
 
 Então o botão "Ajustar limites" deve ser exibido
-    Wait Until Element Is Visible    ${BTN_ADJUST_LIMITS}
-    Element Should Be Visible        ${BTN_ADJUST_LIMITS}
+    Wait Until Element Is Visible            ${BTN_ADJUST_LIMITS}
+    Element Should Be Visible                ${BTN_ADJUST_LIMITS}
 
 Então o botão "Cartão virtual" deve ser exibido
-    Wait Until Element Is Visible    ${BTN_VIRTUAL_CARD}
-    Element Should Be Visible        ${BTN_VIRTUAL_CARD}
+    Wait Until Element Is Visible            ${BTN_VIRTUAL_CARD}
+    Element Should Be Visible                ${BTN_VIRTUAL_CARD}
 
 Então o botão "Bloquear Cartão" deve ser exibido
-    Wait Until Element Is Visible    ${BTN_BLOCK_CARD}
-    Element Should Be Visible        ${BTN_BLOCK_CARD}
+    Wait Until Element Is Visible            ${BTN_BLOCK_CARD}
+    Element Should Be Visible                ${BTN_BLOCK_CARD}
 
 Então o botão "Indicar amigos" deve ser exibido
-    Wait Until Element Is Visible    ${BTN_REFER_FRIENDS}
-    Element Should Be Visible        ${BTN_REFER_FRIENDS}
+    Wait Until Element Is Visible            ${BTN_REFER_FRIENDS}
+    Element Should Be Visible                ${BTN_REFER_FRIENDS}
 
 Então o valor da compra deve ser exibido
-    Wait Until Element Is Visible    ${TRANSACTION_TWO}
+    Wait Until Element Is Visible            ${TRANSACTION_TWO}
     Verifica se o elemento contém o texto    ${TRANSACTION_TWO}    R$ 30,00
 
 Então a data da compra deve ser exibida
-    Wait Until Element Is Visible    ${TRANSACTION_TWO}
+    Wait Until Element Is Visible            ${TRANSACTION_TWO}
     Verifica se o elemento contém o texto    ${TRANSACTION_TWO}    Ontem
 
 Então o usuário que realizou a compra deve ser exibido
-    Wait Until Element Is Visible    ${TRANSACTION_TWO}
+    Wait Until Element Is Visible            ${TRANSACTION_TWO}
     Verifica se o elemento contém o texto    ${TRANSACTION_TWO}    BRENO FREITAS
 
 Então o histórico de compras do cartão de crédito deve ser exibido
-    Wait Until Element Is Visible    ${TRANSACTION_ONE}
-    Element Should Be Visible        ${TRANSACTION_ONE}
-    Wait Until Element Is Visible    ${TRANSACTION_TWO}
-    Element Should Be Visible        ${TRANSACTION_TWO}
-    Wait Until Element Is Visible    ${TRANSACTION_THREE}
-    Element Should Be Visible        ${TRANSACTION_THREE}
+    Wait Until Element Is Visible            ${TRANSACTION_ONE}
+    Element Should Be Visible                ${TRANSACTION_ONE}
+    Wait Until Element Is Visible            ${TRANSACTION_TWO}
+    Element Should Be Visible                ${TRANSACTION_TWO}
+    Wait Until Element Is Visible            ${TRANSACTION_THREE}
+    Element Should Be Visible                ${TRANSACTION_THREE}
