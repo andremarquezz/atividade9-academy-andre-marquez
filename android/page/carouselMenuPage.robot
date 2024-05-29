@@ -93,6 +93,7 @@ Então o botão "Encontrar amigos" deve ser exibido no menu carrossel
 
 Então o usuário deve ser direcionado para a tela de Pix
     Wait Until Element Is Visible    ${PIX_IMAGE}
+    Verifica se o elemento contém o texto    ${PIX_IMAGE}    Tudo o que você precisa para pagar, transferir ou cobrar.
     Element Should Be Visible        ${BTN_KEYS}
     Element Should Be Visible        ${BTN_LIMIT_PIX}
     Element Should Be Visible        ${BTN_HELP}
