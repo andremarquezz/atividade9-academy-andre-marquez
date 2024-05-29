@@ -38,21 +38,21 @@ Então o usuário envolvido na transação deve ser exibido
    Verifica se o elemento contém o texto    ${TRANSFER_USER_ONE}    PATRICIA COSTA
 
 Então o histórico de transações da conta do usuário deve ser exibido
-    Wait Until Element Is Visible       ${TRANSFER_USER_FOUR}
-    Element Should Be Visible           ${TRANSFER_USER_FOUR}
-    Element Should Be Visible           ${TRANSFER_USER_THREE}
-    Element Should Be Visible           ${TRANSFER_USER_TWO}
-    Element Should Be Visible           ${TRANSFER_USER_ONE}
+    Wait Until Element Is Visible           ${TRANSFER_USER_FOUR}
+    Element Should Be Visible               ${TRANSFER_USER_FOUR}    
+    Element Should Be Visible               ${TRANSFER_USER_THREE}
+    Element Should Be Visible               ${TRANSFER_USER_TWO}    
+    Element Should Be Visible               ${TRANSFER_USER_ONE}
 
 Então o saldo da conta do usuário deve ser exibido corretamente
-    Wait Until Page Contains Element    ${TEXT_ACCOUNT_BALANCE}
-    Element Should Be Visible           ${TEXT_ACCOUNT_BALANCE}
-    Element Should Be Visible           ${VALUE_ACCOUNT_BALANCE}
+    Wait Until Page Contains Element        ${TEXT_ACCOUNT_BALANCE}
+    Element Should Be Visible               ${TEXT_ACCOUNT_BALANCE}
+    Element Should Be Visible               ${VALUE_ACCOUNT_BALANCE}
 
 Então o dinheiro guardado deve ser exibido
-    Wait Until Element Is Visible       ${MONEY_SAVED}
-    Element Should Be Visible           ${MONEY_SAVED}
+    Wait Until Element Is Visible           ${MONEY_SAVED}
+    Element Should Be Visible               ${MONEY_SAVED}
 
 Então o rendimento total da conta deve ser exibido
-    Wait Until Element Is Visible       ${TOTAL_EARNINGS}
-    Element Should Be Visible           ${TOTAL_EARNINGS}
+    Wait Until Element Is Visible           ${TOTAL_EARNINGS}
+    Element Should Be Visible               ${TOTAL_EARNINGS}

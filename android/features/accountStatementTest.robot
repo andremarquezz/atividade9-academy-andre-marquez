@@ -33,12 +33,13 @@ CT006 - Deve ser possível visualizar o valor de cada transação
   Dado que o usuário está na tela de extrato da conta
   Quando o usuário acessa a aba de histórico de transações
   Então o valor da transação deve ser exibido
-CT008 - Deve ser possível visualizar o método de transação
+
+CT007 - Deve ser possível visualizar o método de transação
   Dado que o usuário está na tela de extrato da conta
   Quando o usuário acessa a aba de histórico de transações
   Então o método da transação deve ser exibido
 
-CT007 - Deve ser possível visualizar a data da transação
+CT008 - Deve ser possível visualizar a data da transação
   Dado que o usuário está na tela de extrato da conta
   Quando o usuário acessa a aba de histórico de transações
   Então a data da transação deve ser exibida
