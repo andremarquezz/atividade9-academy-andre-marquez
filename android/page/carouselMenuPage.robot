@@ -89,9 +89,11 @@ E clica no atalho "Cobrança" do menu carrossel
 
 Então o usuário deve ser direcionado para a tela de cobrança
     Wait Until Element Is Visible            ${INPUT_VALUE_REQUEST_PAYMENT}
-    Element Should Be Visible                ${INPUT_VALUE_REQUEST_PAYMENT}
+    Wait Until Page Contains                 ${TEXT_PAYMENT_AREA}
     Page Should Contain Text                 ${TEXT_PAYMENT_AREA}
-    Input Text                               ${INPUT_VALUE_REQUEST_PAYMENT}    50    
+    Element Should Be Visible                ${INPUT_VALUE_REQUEST_PAYMENT}
+    Input Text                               ${INPUT_VALUE_REQUEST_PAYMENT}    50 
+    Wait Until Element Is Visible            ${EXPECT_VALUE_REQUEST_PAYMENT}
     Element Should Be Visible                ${EXPECT_VALUE_REQUEST_PAYMENT}
 
 Então o usuário deve ser direcionado para a tela de transferência
@@ -134,6 +136,7 @@ Então o usuário deve ser direcionado para a tela de depósito
 
 Então o usuário deve ser direcionado para a tela de empréstimo
     Wait Until Element Is Visible            ${LOAN_TEXT}
+    Wait Until Element Is Visible            ${BTN_NEW_LOAN}
     Element Should Be Visible                ${LOAN_TEXT}
     Element Should Be Visible                ${BTN_NEW_LOAN}
 
