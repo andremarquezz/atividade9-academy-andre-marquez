@@ -92,22 +92,22 @@ Então o botão "Encontrar amigos" deve ser exibido no menu carrossel
     Element Should Be Visible    ${BTN_FIND_FRIENDS}
 
 Então o usuário deve ser direcionado para a tela de Pix
-    Wait Until Element Is Visible    ${PIX_IMAGE}
-    Verifica se o elemento contém o texto    ${PIX_IMAGE}    Tudo o que você precisa para pagar, transferir ou cobrar.
-    Element Should Be Visible        ${BTN_KEYS}
-    Element Should Be Visible        ${BTN_LIMIT_PIX}
-    Element Should Be Visible        ${BTN_HELP}
-    Element Should Be Visible        ${BTN_PAY_PIX_AREA}
-    Element Should Be Visible        ${BTN_TRANSFER_PIX_AREA}
-    Element Should Be Visible        ${BTN_REQUEST_PAYMENT_PIX_AREA}
+    Wait Until Element Is Visible            ${PIX_IMAGE}
+    Verifica se o elemento contém o texto    ${PIX_IMAGE}                       Tudo o que você precisa para pagar, transferir ou cobrar.
+    Element Should Be Visible                ${BTN_KEYS}
+    Element Should Be Visible                ${BTN_LIMIT_PIX}
+    Element Should Be Visible                ${BTN_HELP}
+    Element Should Be Visible                ${BTN_PAY_PIX_AREA}
+    Element Should Be Visible                ${BTN_TRANSFER_PIX_AREA}
+    Element Should Be Visible                ${BTN_REQUEST_PAYMENT_PIX_AREA}
 
 Então o usuário deve ser direcionado para a tela de pagamento
-    Wait Until Element Is Visible    ${BTN_PIX_PAYMENT_AREA}
-    Element Should Be Visible        ${BTN_PIX_PAYMENT_AREA}
-    Element Should Be Visible        ${BTN_BARCODE_PAYMENT_AREA}
-    Element Should Be Visible        ${BTN_CREDIT_CARD_PAYMENT_AREA}
+    Wait Until Element Is Visible            ${BTN_PIX_PAYMENT_AREA}
+    Verifica se o elemento contém o texto    ${BTN_PIX_PAYMENT_AREA}            Leia um QR Code ou cole o código.
+    Verifica se o elemento contém o texto    ${BTN_BARCODE_PAYMENT_AREA}        Contas de luz, água, etc.
+    Verifica se o elemento contém o texto    ${BTN_CREDIT_CARD_PAYMENT_AREA}    Libera o limite do seu Cartão de Crédito.
 
-Então o usuário deve ser direcionado para a tela de depósito
+Então o usuário deve ser direcionado para a tela de depósito        
     Wait Until Element Is Visible    ${HOME_DEPOSIT_AREA}
     Element Should Be Visible        ${HOME_DEPOSIT_AREA}
     Element Should Be Visible        ${BTN_PIX_DEPOSIT_AREA}
